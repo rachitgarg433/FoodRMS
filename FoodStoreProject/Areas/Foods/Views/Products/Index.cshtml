@@ -1,0 +1,64 @@
+﻿@model IEnumerable<FoodStore.Models.Product>
+
+
+@{
+    ViewData["Title"] = "Menus";
+}
+
+
+
+
+
+
+<div class="row g-0">
+    @foreach (var item in Model)
+    {
+
+
+
+        <div class="col-md-4 mb-3">
+            <div class="card mb-3" style="height:100%">
+                <div class="row g-0">
+                    <div class="col-md-12 p-0 text-center">
+
+
+                        <p class="pt-1"><b>@item.ProductName</b> </p>
+                    </div>
+                    <div class="col-md-12 m-0">
+                        <img src="@item.ImgUrl" style="height:50vh" width="100%">
+                    </div>
+                    <div class="col-md-12">
+
+
+                        <div class="card-body">
+                            <p class="card-text"><b>Description: </b>@item.ProductDescription</p>
+
+                            <p class="card-text"> <b><i>Available Products : </i></b>  @item.NumberOfProducts</p>
+                            <p class="card-text"><b>Price: </b>@item.Price</p>
+                            
+
+                            <a class="btn btn-success text-white" asp-area="foods" asp-controller="Orders" asp-action="Create">Order Now</a>
+
+                        </div>
+
+                    </div>
+
+
+
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+
+
+    }
+</div>
+<p>
+    <a asp-action="Create" class="btn btn-dark text-white">Create New</a>
+</p>
